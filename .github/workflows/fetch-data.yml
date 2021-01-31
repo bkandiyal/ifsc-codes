@@ -1,15 +1,17 @@
-name: fetch-data
 on:
-  workflow_dispatch
+  workflow_dispatch:
+    - name: ''
   schedule:
     - cron: '0 0 * * *'
-  jobs:
-    build:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@master
-        - name: Fetch
-          run: bash fetch-data.sh
-        - uses: mikeal/publish-to-github-action@master
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+name: fetch-data
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Fetch
+        run: bash fetch-data.sh
+      - uses: mikeal/publish-to-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
