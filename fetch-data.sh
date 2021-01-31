@@ -3,7 +3,7 @@
 if ! python -c "import pandas"
 then
 	echo "Pandas is not installed...installing..."
-	pip install pandas openpyxl xlrd
+	pip install wheel pandas openpyxl xlrd
 fi
 
 echo "Downloading file..."
