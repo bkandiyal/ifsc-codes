@@ -9,6 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - uses: actions/setup-python@v2
+        with:
+          python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas openpyxl xlrd
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Fetch
         run: bash fetch-data.sh
       - uses: mikeal/publish-to-github-action@master

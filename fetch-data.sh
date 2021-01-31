@@ -1,11 +1,5 @@
 #!/bin/bash
 
-if ! python -c "import pandas"
-then
-	echo "Pandas is not installed...installing..."
-	pip install wheel pandas openpyxl xlrd
-fi
-
 echo "Downloading file..."
 #curl -O https://rbidocs.rbi.org.in/rdocs/content/docs/68774.xlsx
 
